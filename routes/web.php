@@ -14,28 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::prefix('jogos')->group(function(){
+    
+    Route::get('/', [JogosController::class, 'index'])->name('jogos-index');
 
-// Route::view('/jogos','jogos'); //Rota para retornar uma `view`
+    Route::get('/create',[JogosController::class, 'create'])->name('jogos-create');
 
-// Route::get('/jogos', function(){
-//     return "Testando de novo";
-// }); //Rota para retotnar um texto
+    Route::post('/', [JogosController::class, 'store'])->name('jogos-store');
 
-// Route::view('/jogos', 'jogos', ['name' => 'GTA']); //Rota para retornar um parâmetro estático
-
-// Route::get('/jogos/{id?}/{name?}',function($id = null, $name = null){
-//     return view('jogos',['idJogo'=>$id, 'nomeJogo'=>$name]);
-// })->where(['id' => '[0-9]+', 'name' => '[a-z]+']);// Retornar parâmetros dinâmico
-
-Route::get('/jogos', [JogosController::class, 'index']);
-
-Route::get('/home', function(){
-    return view('welcome');
-})->name('home-index');
+});
 
 Route::fallback(function(){
-    return "Erro ao localizar a rota!";
+    return "Erro ao localizar a página!";
 });
