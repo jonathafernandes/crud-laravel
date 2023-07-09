@@ -26,6 +26,8 @@ Route::prefix('jogos')->group(function(){
 
     Route::put('/{id}', [JogosController::class, 'update'])->where('id', '[0-9)]+')->name('jogos-update');
 
+    Route::delete('/{id}', [JogosController::class, 'destroy'])->where('id', '[0-9]+')->name('jogos-destroy');
+
 });
 
 Route::fallback(function(){

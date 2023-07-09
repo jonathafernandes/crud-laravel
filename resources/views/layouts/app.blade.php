@@ -16,6 +16,17 @@
         .btn {
             font-family: 'Roboto Mono', monospace;
         }
+
+        .btn-2 {
+            border: none;
+            cursor: pointer;
+            transition: 100ms;
+        }
+
+        .btn-2:hover {
+            color: red;
+        }
+
     </style>
     <title>@yield('title') | Crud App</title>
 </head>
